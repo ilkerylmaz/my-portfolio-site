@@ -93,13 +93,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Project Card */}
             <div className="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-              <h3 className="text-xl font-semibold text-white mb-2">Project Name</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">Weather Forecast Website</h3>
               <p className="text-gray-300 mb-4">
-                Project description goes here. You can mention the technologies used and the purpose of the project.
+                Weather forecast website that displays weather conditions based on the entered city
               </p>
               <div className="flex gap-2">
                 <a
-                  href="#"
+                  href="https://weatherste.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
