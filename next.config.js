@@ -14,7 +14,7 @@ const nextConfig = {
         turbotrace: {
             logLevel: 'error'
         },
-        enableBuildCache: true,
+
     },
     trailingSlash: true,
     swcMinify: true,
