@@ -34,7 +34,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <p className="text-gray-300">
-                I am continuing my education as a 3rd year Computer Engineering student.
+                I continue my education as a 3rd year Computer Engineering student.
                 While developing myself in areas such as software development, data structures
                 and algorithms, and web technologies, I am developing projects using modern
                 web technologies.
