@@ -159,12 +159,12 @@ const AcademicPage = () => {
                 { code: "BITM387", name: "Entrepreneurship", credit: 2, grade: "A1" },
             ],
             springCourses: [
-                { code: "BITM302", name: "Algorithm Analysis", credit: 3, grade: "--" },
-                { code: "BITM306", name: "Internet Programming", credit: 4, grade: "--" },
-                { code: "BITM374", name: "Artificial Intelligence", credit: 4, grade: "--" },
-                { code: "BITM376", name: "Object Oriented Software Engineering", credit: 4, grade: "--" },
-                { code: "BITM378", name: "Signals and Systems", credit: 3, grade: "--" },
-                { code: "BITM396", name: "Human Values and Scientific Perspective", credit: 2, grade: "--" },
+                { code: "BITM302", name: "Algorithm Analysis", credit: 3, grade: "B2" },
+                { code: "BITM306", name: "Internet Programming", credit: 4, grade: "B1" },
+                { code: "BITM374", name: "Artificial Intelligence", credit: 4, grade: "A3" },
+                { code: "BITM376", name: "Object Oriented Software Engineering", credit: 4, grade: "C2" },
+                { code: "BITM378", name: "Signals and Systems", credit: 3, grade: "B1" },
+                { code: "BITM396", name: "Human Values and Scientific Perspective", credit: 2, grade: "B3" },
             ],
         },
         {
@@ -188,6 +188,7 @@ const AcademicPage = () => {
         { term: "2023-24 Fall", termGPA: 2.26, cumulativeGPA: 2.96 },
         { term: "2023-24 Spring", termGPA: 3.74, cumulativeGPA: 3.16 },
         { term: "2024-25 Fall", termGPA: 3.16, cumulativeGPA: 3.30 },
+        { term: "2024-25 Spring", termGPA: 3.03, cumulativeGPA: 3.26 }
     ];
 
     const CustomTooltip = ({ active, payload, label }: any) => {
