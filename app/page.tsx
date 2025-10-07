@@ -34,10 +34,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <p className="text-gray-300">
-                I continue my education as a 3rd year Computer Engineering student.
-                While developing myself in areas such as software development, data structures
-                and algorithms, and web technologies, I am developing projects using modern
-                web technologies.
+                I am a 4th-year Computer Engineering student with a strong passion for software development and web technologies. 
+                Alongside enhancing my knowledge in data structures, algorithms, and modern programming practices, I specialize in 
+                designing and developing visually appealing, user-friendly websites. I continuously work on projects that combine 
+                functionality with modern web design trends, aiming to create seamless and engaging digital experiences.
               </p>
               <div className="space-y-2">
                 <h3 className="text-2xl font-semibold text-white">Skills</h3>
@@ -68,12 +68,11 @@ export default function Home() {
                   <h4 className="text-white font-medium">İnönü University</h4>
                   <p className="text-gray-400">Computer Engineering • 2022 - Present</p>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-emerald-400 font-semibold">GPA: 3.30</span>
+                    <span className="text-emerald-400 font-semibold">GPA: 3.26</span>
                     <span className="text-gray-400">(4.00 Scale)</span>
                   </div>
                   <a
                     href="/academic"
-                    target="_blank"
                     className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                   >
                     View Academic Transcript
@@ -123,41 +122,53 @@ export default function Home() {
 
       {/* Contact Section */}
       <section className="min-h-screen bg-black p-8">
-        <div className="max-w-4xl mx-auto pt-20">
-          <h2 className="text-4xl font-bold text-white mb-8">Contact</h2>
-          <div className="space-y-4">
-            <p className="text-gray-300">
-              You can reach me through the following channels:
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="mailto:ilkerylmaz57@hotmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition"
-              >
-                Email
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ilker-yılmaz-b097a1251/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/ilkerylmaz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
+  <div className="max-w-4xl mx-auto pt-20">
+    <h2 className="text-4xl font-bold text-white mb-8 text-center">Get in Touch</h2>
+    <p className="text-gray-300 text-center mb-12">
+      I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+      Feel free to reach out via the form below or through the channels listed.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Contact Info */}
+      <div className="space-y-6">
+        <h3 className="text-2xl font-semibold text-white">Contact Info</h3>
+        <div className="text-gray-300">
+          <p><strong>Email:</strong> <a href="mailto:ilkerylmaz57@hotmail.com" className="hover:text-blue-400 transition">ilkerylmaz57@hotmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ilker-yılmaz-b097a1251/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">linkedin.com/in/ilker-yılmaz</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/ilkerylmaz" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">github.com/ilkerylmaz</a></p>
         </div>
-      </section>
+      </div>
+
+      {/* Contact Form */}
+      <form className="bg-gray-900 p-6 rounded-xl shadow-lg space-y-4">
+        <h3 className="text-2xl font-semibold text-white">Send a Message</h3>
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <textarea
+          placeholder="Your Message"
+          rows={5}
+          className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
     </main>
   );
 }
