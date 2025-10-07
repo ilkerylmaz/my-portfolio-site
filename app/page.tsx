@@ -1,8 +1,59 @@
 "use client";
 
 import { SparklesCore } from "@/components/ui/sparkles";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS konfigürasyonu
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'ilkerylmaz57@hotmail.com'
+        },
+        publicKey
+      );
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Email gönderme hatası:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-black">
       {/* Hero Section with Sparkles */}
@@ -141,28 +192,58 @@ export default function Home() {
       </div>
 
       {/* Contact Form */}
-      <form className="bg-gray-900 p-6 rounded-xl shadow-lg space-y-4">
+      <form onSubmit={handleSubmit} className="bg-gray-900 p-6 rounded-xl shadow-lg space-y-4">
         <h3 className="text-2xl font-semibold text-white">Send a Message</h3>
+        
+        {submitStatus === 'success' && (
+          <div className="p-3 bg-green-600 text-white rounded-lg">
+            Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="p-3 bg-red-600 text-white rounded-lg">
+            Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+          </div>
+        )}
+
         <input
           type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
           placeholder="Your Name"
+          required
           className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <input
           type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
           placeholder="Your Email"
+          required
           className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
           placeholder="Your Message"
           rows={5}
+          required
           className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
         ></textarea>
         <button
           type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition"
+          disabled={isLoading}
+          className={`w-full font-semibold py-3 rounded-lg transition ${
+            isLoading 
+              ? 'bg-gray-600 cursor-not-allowed' 
+              : 'bg-blue-500 hover:bg-blue-600'
+          } text-white`}
         >
-          Send Message
+          {isLoading ? 'Gönderiliyor...' : 'Send Message'}
         </button>
       </form>
     </div>
